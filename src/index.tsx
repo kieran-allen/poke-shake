@@ -1,6 +1,14 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from "react";
+import { render } from "react-dom";
+import { App } from "./App";
+import { QueryClient, QueryClientProvider } from "react-query";
 
-const anchor = document.getElementById('app');
+const anchor = document.getElementById("app");
+const queryClient = new QueryClient();
 
-render(<h1>hello</h1>, anchor);
+render(
+  <QueryClientProvider client={queryClient}>
+    <App />
+  </QueryClientProvider>,
+  anchor
+);
