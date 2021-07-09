@@ -14,10 +14,10 @@ module.exports = {
   module: {
     rules: [
       { test: /\.tsx?$/, loader: "ts-loader" },
-      // {
-      //   test: /\.css$/i,
-      //   use: ["style-loader", "css-loader", "postcss-loader"],
-      // },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader", "postcss-loader"],
+      },
     ],
   },
   plugins: [new HtmlWebpackPlugin()],
