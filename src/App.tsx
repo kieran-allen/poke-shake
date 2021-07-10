@@ -36,7 +36,7 @@ export function App() {
           setFavorite={setFavorite}
           isFavorite={isFavorite}
         />
-        <Favorites favorites={favorites} />
+        <Favorites favorites={favorites} pokemonName={pokemon.data?.name}/>
       </div>
     </main>
   );

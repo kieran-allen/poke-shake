@@ -3,9 +3,10 @@ import { FavoritesType } from "../types";
 
 type Props = {
   favorites: FavoritesType;
+  pokemonName?: string;
 };
 
-export function Favorites({ favorites }: Props) {
+export function Favorites({ favorites, pokemonName = "" }: Props) {
   if (!favorites.length) return null;
 
   return (
@@ -15,7 +16,9 @@ export function Favorites({ favorites }: Props) {
       </header>
       <ul>
         {favorites.map((f, idx) => (
-          <li key={idx}><a href={`/?pokemon=${f}`}>{f}</a></li>
+          <li key={idx} id={f === pokemonName ? "active-link" : ""}>
+            <a href={`/?pokemon=${f}`}>{f}</a>
+          </li>
         ))}
       </ul>
     </section>
