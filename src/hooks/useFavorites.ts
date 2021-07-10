@@ -17,10 +17,15 @@ export function useFavorites(): [
       const newFavorites: string[] = pokemonFavorites
         ? [pokemonName, ...JSON.parse(pokemonFavorites)]
         : [pokemonName];
-      localStorage.setItem(
-        getFavoritesCacheKey(),
-        JSON.stringify(newFavorites)
-      );
+      localStorage.setItem("pokemon-favorites", JSON.stringify(newFavorites));
+      set(newFavorites);
+    } else {
+      const newFavorites: string[] = pokemonFavorites
+        ? (JSON.parse(pokemonFavorites) as string[]).filter(
+            (i) => i !== pokemonName
+          )
+        : [];
+      localStorage.setItem("pokemon-favorites", JSON.stringify(newFavorites));
       set(newFavorites);
     }
   }

@@ -29,13 +29,15 @@ export function App() {
         disabled={pokemon.status === "loading"}
         autoFocus
       />
-      <Pokemon
-        pokemon={pokemon}
-        shakespearean={shakespearean}
-        setFavorite={setFavorite}
-        isFavorite={isFavorite}
-      />
-      <Favorites favorites={favorites} />
+      <div id="bb">
+        <Pokemon
+          pokemon={pokemon}
+          shakespearean={shakespearean}
+          setFavorite={setFavorite}
+          isFavorite={isFavorite}
+        />
+        <Favorites favorites={favorites} />
+      </div>
     </main>
   );
 }
