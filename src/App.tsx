@@ -1,11 +1,16 @@
 import React, { ChangeEvent, useState } from "react";
 import { useFindPokemon } from "./api/useFindPokemon";
 import { useGetShakespearean } from "./api/useGetShakespearean";
+import { Favorites } from "./components/Favorites";
+import { Pokemon } from "./components/Pokemon";
 import { useDebounce } from "./hooks/useDebounce";
-import { filterUniqueEnglishFlavorTextEntries } from "./utils/filterUniqueEnglishFlavorTextEntries";
+import { useFavorites } from "./hooks/useFavorites";
 
 export function App() {
-  const [searchValue, setSearchValue] = useState("");
+  const params = new URLSearchParams(window.location.search);
+
+  const [favorites, setFavorite, isFavorite] = useFavorites();
+  const [searchValue, setSearchValue] = useState(params.get("pokemon") ?? "");
   const debouncedSearchValue = useDebounce(searchValue, 1000);
   const pokemon = useFindPokemon(debouncedSearchValue);
   const shakespearean = useGetShakespearean(pokemon);
@@ -13,8 +18,6 @@ export function App() {
   function handleOnChange(e: ChangeEvent<HTMLInputElement>) {
     setSearchValue(e.target.value);
   }
-
-  console.info(shakespearean.data);
 
   return (
     <main>
@@ -24,19 +27,15 @@ export function App() {
         value={searchValue}
         onChange={handleOnChange}
         disabled={pokemon.status === "loading"}
+        autoFocus
       />
-      {pokemon.data && (
-        <>
-          <h2>{pokemon.data.name}</h2>
-          <ul>
-            {filterUniqueEnglishFlavorTextEntries(
-              pokemon.data.flavor_text_entries
-            ).map((flavor_text, idx) => (
-              <li key={idx}>{flavor_text}</li>
-            ))}
-          </ul>
-        </>
-      )}
+      <Pokemon
+        pokemon={pokemon}
+        shakespearean={shakespearean}
+        setFavorite={setFavorite}
+        isFavorite={isFavorite}
+      />
+      <Favorites favorites={favorites} />
     </main>
   );
 }

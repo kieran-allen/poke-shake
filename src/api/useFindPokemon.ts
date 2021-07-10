@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
 import type { FindPokemonResponse } from "../types";
+import { generateSpritURL } from "../utils/generateSpriteURL";
 
 export function useFindPokemon(name: string) {
   const prunedName = name.toLowerCase().trim();
@@ -21,6 +22,8 @@ export function useFindPokemon(name: string) {
       retry: 3,
       staleTime: Infinity,
       onSuccess: (data) => {
+        // begin loading image as soon as we get pokemon data.
+        new Image().src = generateSpritURL(data.id);
         localStorage.setItem(cacheKey, JSON.stringify(data));
       },
     }

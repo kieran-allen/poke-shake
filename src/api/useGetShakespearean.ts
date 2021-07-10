@@ -1,5 +1,5 @@
 import { useQuery, UseQueryResult } from "react-query";
-import type { FindPokemonResponse } from "../types";
+import type { FindPokemonResponse, GetShakespeareanResponse } from "../types";
 import { filterUniqueEnglishFlavorTextEntries } from "../utils/filterUniqueEnglishFlavorTextEntries";
 
 export function useGetShakespearean(
@@ -12,7 +12,7 @@ export function useGetShakespearean(
   )
     .map((flavor_text) => flavor_text)
     .join();
-  return useQuery<unknown>(
+  return useQuery<GetShakespeareanResponse>(
     cacheKey,
     async () => {
       const req = await fetch(
