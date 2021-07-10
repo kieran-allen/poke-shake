@@ -5,7 +5,7 @@ import { useDebounce } from "./hooks/useDebounce";
 import { filterUniqueEnglishFlavorTextEntries } from "./utils/filterUniqueEnglishFlavorTextEntries";
 
 export function App() {
-  const [searchValue, setSearchValue] = useState<string>("");
+  const [searchValue, setSearchValue] = useState("");
   const debouncedSearchValue = useDebounce(searchValue, 1000);
   const pokemon = useFindPokemon(debouncedSearchValue);
   const shakespearean = useGetShakespearean(pokemon);
@@ -13,6 +13,8 @@ export function App() {
   function handleOnChange(e: ChangeEvent<HTMLInputElement>) {
     setSearchValue(e.target.value);
   }
+
+  console.info(shakespearean.data);
 
   return (
     <main>
