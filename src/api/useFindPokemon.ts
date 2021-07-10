@@ -3,8 +3,9 @@ import type { FindPokemonResponse } from "../types";
 
 export function useFindPokemon(name: string) {
   const prunedName = name.toLowerCase().trim();
+  const cacheKey = `find-pokemon-${prunedName}`;
   return useQuery<FindPokemonResponse>(
-    `find-pokemon-${prunedName}`,
+    cacheKey,
     async () => {
       const req = await fetch(
         `https://pokeapi.co/api/v2/pokemon-species/${prunedName}`
