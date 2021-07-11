@@ -21,6 +21,7 @@ export function App() {
 
   return (
     <main>
+      <label htmlFor="search-input">Search for pokemon:</label>
       <input
         type="text"
         id="search-input"
@@ -36,7 +37,7 @@ export function App() {
           setFavorite={setFavorite}
           isFavorite={isFavorite}
         />
-        <Favorites favorites={favorites} pokemonName={pokemon.data?.name}/>
+        <Favorites favorites={favorites} pokemonName={pokemon.data?.name} />
       </div>
     </main>
   );

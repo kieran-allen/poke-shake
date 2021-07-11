@@ -10,6 +10,8 @@
   --purple: #363b81;
 
   --borderRadiusSmall: 5px;
+
+  --width: 868px;
 }
 
 * {
@@ -23,7 +25,7 @@ body {
 }
 
 main {
-  max-width: 868px;
+  max-width: var(--width);
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -51,7 +53,14 @@ li {
   font-size: 32px;
 }
 
+#bb {
+  display: flex;
+}
+
 #pokemon-section {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 66%;
   margin: calc(var(--spacing) * 2);
   padding: var(--spacing);
   color: var(--dark);
@@ -63,11 +72,26 @@ li {
   flex-grow: 1;
   align-items: center;
   color: var(--dark);
+  justify-content: space-evenly;
 }
 
 #pokemon-section > header > img {
   border: var(--purple) solid var(--borderWidth);
   border-radius: 100%;
+}
+
+#favorites-section {
+  margin-left: calc(var(--spacing) * 2);
+  padding-left: calc(var(--spacing) * 2);
+  border-left: var(--purple) solid 1px;
+}
+
+#active-link {
+  background-color: var(--purple);
+}
+
+#active-link > a {
+  color: var(--white);
 }
 
 #add-to-favorites {
@@ -80,16 +104,22 @@ li {
   margin-bottom: calc(var(--spacing) * 2);
 }
 
-#bb {
-  display: flex;
-}
-
-#favorites {
+label {
   margin-left: calc(var(--spacing) * 2);
-  padding-left: calc(var(--spacing) * 2);
-  border-left: var(--dark) solid 1px;
+  margin-top: calc(var(--spacing) * 4);
+  font-size: 24px;
+  font-weight: bold;
 }
 
-#active-link {
-  background-color: var(--blue);
+@media screen and (max-width: 868px) {
+  #bb {
+    flex-direction: column-reverse;
+  }
+
+  #favorites-section {
+    border: none;
+    margin-left: calc(var(--spacing) * 3);
+    margin-right: calc(var(--spacing) * 3);
+    padding: 0;
+  }
 }

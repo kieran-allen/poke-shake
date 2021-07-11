@@ -7,10 +7,9 @@ type Props = {
 };
 
 export function Favorites({ favorites, pokemonName = "" }: Props) {
-  if (!favorites.length) return null;
 
   return (
-    <section id="favorites">
+    <section id="favorites-section">
       <header>
         <h2>My favorites:</h2>
       </header>
