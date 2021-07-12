@@ -5,5 +5,5 @@ module.exports = {
   },
   testEnvironment: 'jsdom',
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
-  setupFilesAfterEnv: ["./jest.setup.ts"],
+  setupFilesAfterEnv: ["./jest.setup.ts", "jest-localstorage-mock"],
 };
