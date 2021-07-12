@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "/src/index.tsx",
   output: {
+    clean: true,
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
   },

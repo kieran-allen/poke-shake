@@ -53,7 +53,7 @@ li {
   font-size: 32px;
 }
 
-#bb {
+#data-wrapper {
   display: flex;
 }
 
@@ -123,7 +123,7 @@ label {
 }
 
 @media screen and (max-width: 868px) {
-  #bb {
+  #data-wrapper {
     flex-direction: column-reverse;
   }
 

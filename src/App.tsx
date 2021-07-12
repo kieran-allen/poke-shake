@@ -29,7 +29,7 @@ export function App() {
         onChange={handleOnChange}
         autoFocus
       />
-      <div id="bb">
+      <div id="data-wrapper">
         <Pokemon
           pokemon={pokemon}
           shakespearean={shakespearean}
