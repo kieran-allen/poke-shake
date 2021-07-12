@@ -7,7 +7,7 @@ export function filterUniqueEnglishFlavorTextEntries(
     ...new Set(
       entries
         .filter(({ language }) => language.name.includes("en"))
-        .map(({ flavor_text }) => flavor_text.replace("\u000c", "\n"))
+        .map(({ flavor_text }) => flavor_text.replace("\u000c", " "))
     ),
   ];
 }
