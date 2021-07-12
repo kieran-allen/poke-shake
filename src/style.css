@@ -58,15 +58,19 @@ li {
 }
 
 #pokemon-section {
+  flex-basis: 66%;
+}
+
+#pokemon-section > div {
   display: flex;
   flex-direction: column;
-  flex-basis: 66%;
+  
   margin: calc(var(--spacing) * 2);
   padding: var(--spacing);
   color: var(--dark);
 }
 
-#pokemon-section > header {
+#pokemon-section header {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
@@ -75,7 +79,7 @@ li {
   justify-content: space-evenly;
 }
 
-#pokemon-section > header > img {
+#pokemon-section header > img {
   border: var(--purple) solid var(--borderWidth);
   border-radius: 100%;
 }
@@ -111,7 +115,7 @@ label {
   font-weight: bold;
 }
 
-#error {
+#pokemon-section #error {
   background-color: var(--red);
   color: var(--white);
   padding: calc(var(--spacing) * 3);
