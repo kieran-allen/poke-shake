@@ -27,7 +27,6 @@ export function App() {
         id="search-input"
         value={searchValue}
         onChange={handleOnChange}
-        disabled={pokemon.status === "loading"}
         autoFocus
       />
       <div id="bb">

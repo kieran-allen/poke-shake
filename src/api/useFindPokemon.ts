@@ -19,12 +19,15 @@ export function useFindPokemon(name: string) {
     {
       enabled: !!prunedName,
       ...(storeageData ? { initialData: JSON.parse(storeageData) } : {}),
-      retry: 3,
+      retry: 1,
       staleTime: Infinity,
       onSuccess: (data) => {
         // begin loading image as soon as we get pokemon data.
         new Image().src = generateSpritURL(data.id);
         localStorage.setItem(cacheKey, JSON.stringify(data));
+      },
+      onSettled: () => {
+        console.info('h');
       },
     }
   );

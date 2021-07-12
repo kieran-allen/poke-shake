@@ -7,7 +7,6 @@ type Props = {
 };
 
 export function Favorites({ favorites, pokemonName = "" }: Props) {
-
   return (
     <section id="favorites-section">
       <header>
@@ -15,8 +14,12 @@ export function Favorites({ favorites, pokemonName = "" }: Props) {
       </header>
       <ul>
         {favorites.map((f, idx) => (
-          <li key={idx} id={f === pokemonName ? "active-link" : ""}>
-            <a href={`/?pokemon=${f}`}>{f}</a>
+          <li
+            key={idx}
+            id={f === pokemonName ? "active-link" : ""}
+            data-testid={`favorite-${f}`}
+          >
+            <a data-testid={`link-favorite-${f}`} href={`/?pokemon=${f}`}>{f}</a>
           </li>
         ))}
       </ul>

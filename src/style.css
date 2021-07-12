@@ -111,6 +111,13 @@ label {
   font-weight: bold;
 }
 
+#error {
+  background-color: var(--red);
+  color: var(--white);
+  padding: calc(var(--spacing) * 3);
+  border-radius: var(--borderRadiusSmall);
+}
+
 @media screen and (max-width: 868px) {
   #bb {
     flex-direction: column-reverse;

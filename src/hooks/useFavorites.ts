@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { FavoritesType } from "../types";
-import { getFavoritesCacheKey } from "../utils/getFavoritesCacheKey";
 
 export function useFavorites(): [
   FavoritesType,
