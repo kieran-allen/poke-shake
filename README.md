@@ -7,7 +7,7 @@ Tested with:
 `npm:v6.14.12`
 
 ### Getting started:
-`npm install`
+`npm install`  
 `npm start`
 
 Navigate to `localhost:8080`
