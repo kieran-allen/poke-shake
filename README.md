@@ -10,6 +10,9 @@ Tested with:
 `npm install`
 `npm start`
 
+Navigate to `localhost:8080`
+If you want to pre-populate the search then add the query parameter `pokemon` *eg.* `localhost:8080/?pokemon=charmander`
+
 
 ### Running tests:
 `npm test`
