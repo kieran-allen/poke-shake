@@ -122,6 +122,24 @@ label {
   border-radius: var(--borderRadiusSmall);
 }
 
+#info-bar {
+  background-color: var(--purple);
+  padding: calc(var(--spacing) * 2);
+  color: var(--white);
+}
+
+#info-bar li {
+  margin: 0;
+  padding: 0;
+}
+
+#info-bar a {
+  color: var(--white);
+  margin: 0;
+  padding: 0;
+}
+
+
 @media screen and (max-width: 868px) {
   #data-wrapper {
     flex-direction: column-reverse;
