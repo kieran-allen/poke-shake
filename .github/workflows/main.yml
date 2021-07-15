@@ -18,4 +18,7 @@ jobs:
         run: npm test
       - name: build project for production
         run: npm run build
-      - run: cd dist && ls
+      - name: sync non index.html files with s3 bucket
+        run: aws s3 sync ./dist s3://pokemon.kieranallen.me --exclude index.html --cache-control "max-age=31536000"
+      - name: sync index.html with s3 bucket
+        run: aws s3 sync ./dist s3://pokemon.kieranallen.me --cache-control "no-cache"
