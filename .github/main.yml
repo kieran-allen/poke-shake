@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+      - name: install aws-cli
+        run: |
+          curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" -o ~/awscliv2.zip
+          unzip ~/awscliv2.zip -d ~
+          sudo ~/aws/install
+          aws --version
+      - name: install node modules
+        run: npm install
+      - name: run unit tests
+        run: npm test
+      - name: build project for production
+        run: npm run build
+      - name: sync files
+      - run: cd dist && ls -la
