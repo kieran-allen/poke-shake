@@ -33,7 +33,7 @@ export function Pokemon({
                 src={generateSpritURL(pokemon.data.id)}
                 alt={`Picture depicting the pokemon called ${pokemon.data.name}.`}
               />
-              <h2>{pokemon.data.name} ff</h2>
+              <h2>{pokemon.data.name}</h2>
             </header>
             <button
               data-testid="pokemon-toggle-favorite-button"
