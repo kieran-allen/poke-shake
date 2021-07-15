@@ -24,5 +24,4 @@ jobs:
         run: npm test
       - name: build project for production
         run: npm run build
-      - name: sync files
       - run: cd dist && ls -la
